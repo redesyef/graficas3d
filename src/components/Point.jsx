@@ -7,6 +7,7 @@ class Point extends React.Component {
     render(){
       var data = [{
         y:[1,1],
+        
         type: 'surface',
         contours: {
           z: {
