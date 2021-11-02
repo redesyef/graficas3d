@@ -24,6 +24,7 @@ class Graphs extends React.Component {
           [8.93,8.97,8.97,9.18,9.2,9.18]
       ],
         type: 'surface',
+        colorscale:'Viridis',
         contours: {
           z: {
             show:true,
