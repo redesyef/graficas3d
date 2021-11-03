@@ -49,6 +49,7 @@ class Linea extends Component {
 							 y: this.transformData(this.state.data)['y'],
                              z:[2.2,1.1,2.1,1.6,2.0,2.7,2.3,2.7],
                              colorscale:'Viridis',
+                             color: [5,5,6,24,4,6,8]
 							 //marker: { color: '#ed022d'}}
                     }]}
 					layout = { 
