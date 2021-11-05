@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Plot from 'react-plotly.js';
 
-class Linea extends Component {
+class Fecth extends Component {
 
 	// Set up states for loading data
 	constructor(props){
@@ -24,32 +24,23 @@ class Linea extends Component {
 	transformData (data) {
 		let plot_data = [];
 
-		//let x = [];
-		//let y = [];
-        const prueba =[{
-            maker: {
-                color:[]
-        },
-        },{    
-         maker: {
-            color:[]
-    }}
-        ];
+		let x = [];
+		let y = [];
+        let maker ={
+    color:[],
+    };
 		data.map(each => {
-			//x.push(each.hora)
-            //y.push(each.temp2)
-			prueba[0].maker.color.push(each.temp2)
-            prueba[1].maker.color.push(each.temp3)
+			x.push(each.hora)
+            y.push(each.temp2)
+			maker.color.push(each.temp2)
 		})
-		//plot_data['x'] = x;
-		//plot_data['y'] = y;
-        plot_data['maker.color'] = prueba[0].maker.color;
-        plot_data['maker.color2'] = prueba[1].maker.color;
-		console.log(prueba)
+		plot_data['x'] = x;
+		plot_data['y'] = y;
+        plot_data['maker.color'] = maker.color;
+		console.log(plot_data)
 
 		return plot_data
 	}
-
 
 	render() {
 		return (
@@ -66,26 +57,13 @@ class Linea extends Component {
                                 coloraxis: "coloraxis",
                                 symbol: "diamond",
                               },
-							 x: [1,1],
-							 y: [1,1],
-                             z:[2.2],
+							 x: this.transformData(this.state.data)['x'],
+							 y: this.transformData(this.state.data)['y'],
+                             z:[2.2,1.1,2.1,1.6,2.0,2.7,2.3,2.7],
                              colorscale:'diverging',
-                            },
-                            {mode: 'markers',
-                            hovertemplate:
-              "Temp1=Grados<br>Grados=%{marker.color}<br>x=%{x}<br>y=%{y}<br>z=%{z}<br>", 
-                            type:'scatter3d',
-                            marker: {
-                                color: this.transformData(this.state.data)['maker.color2'],
-                                coloraxis: "coloraxis",
-                                symbol: "circle",
-                              },
-							 x: [2,2],
-							 y: [2,1],
-                             z:[0],
-                             colorscale:'diverging',
-                            }
-                    ]}
+                             //color: [5,5,6,24,4,6,8]
+							 //marker: { color: ['#ed022d']}}
+                    }]}
 					layout = { 
                         {
                         width: 900, height: 800, title: 'Temperatura 3d',
@@ -139,4 +117,4 @@ class Linea extends Component {
 	}
 }
 
-export default Linea;
+export default Fecth;
