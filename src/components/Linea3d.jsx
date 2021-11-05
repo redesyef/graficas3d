@@ -11,7 +11,7 @@ class Linea extends Component {
 
 	// Call API upon component mount
 	componentDidMount() {
-		const endpoint = "https://www.muons.com.co/soft/demo1/datos1_reducido/articulos.php";
+		const endpoint = "https://muons.com.co/soft/misericordia/API/datos/articulos.php";
 
 		fetch(endpoint)
 			.then(response => response.json())
@@ -26,26 +26,61 @@ class Linea extends Component {
 
 		//let x = [];
 		//let y = [];
-        const prueba =[{
+        const markes =[{
             maker: {
                 color:[]
         },
         },{    
-         maker: {
-            color:[]
-    }}
+            maker: {
+                color:[]
+         }},{    
+            maker: {
+                color:[]
+        }},{    
+            maker: {
+                color:[]
+        }},{    
+            maker: {
+                color:[]
+        }},{    
+            maker: {
+                color:[]
+        }},{    
+            maker: {
+                color:[]
+        }},{    
+            maker: {
+                color:[]
+        }},{    
+            maker: {
+                color:[]
+        }}
         ];
 		data.map(each => {
 			//x.push(each.hora)
             //y.push(each.temp2)
-			prueba[0].maker.color.push(each.temp2)
-            prueba[1].maker.color.push(each.temp3)
+			markes[0].maker.color.push(each.temp1)
+            markes[1].maker.color.push(each.temp2)
+            markes[2].maker.color.push(each.temp3)
+            markes[3].maker.color.push(each.temp4)
+            markes[4].maker.color.push(each.temp5)
+            markes[5].maker.color.push(each.temp6)
+            markes[6].maker.color.push(each.temp7)
+            markes[7].maker.color.push(each.temp8)
+            markes[8].maker.color.push(each.temp9)
 		})
 		//plot_data['x'] = x;
 		//plot_data['y'] = y;
-        plot_data['maker.color'] = prueba[0].maker.color;
-        plot_data['maker.color2'] = prueba[1].maker.color;
-		console.log(prueba)
+        plot_data['maker.color'] = markes[0].maker.color;
+        plot_data['maker.color2'] = markes[1].maker.color;
+        plot_data['maker.color3'] = markes[2].maker.color;
+        plot_data['maker.color4'] = markes[3].maker.color;
+        plot_data['maker.color5'] = markes[4].maker.color;
+        plot_data['maker.color6'] = markes[5].maker.color;
+        plot_data['maker.color7'] = markes[6].maker.color;
+        plot_data['maker.color8'] = markes[7].maker.color;
+        plot_data['maker.color9'] = markes[8].maker.color;
+		console.log(plot_data)
 
 		return plot_data
 	}
@@ -57,26 +92,124 @@ class Linea extends Component {
 				<Plot
 					data = {[
                         
-							{mode: 'line',
+							{mode: 'markers',
                             hovertemplate:
-              "Temp1=Grados<br>Grados=%{marker.color}<br>x=%{x}<br>y=%{y}<br>z=%{z}<br>", 
+              "Temp1<br>%{marker.color}°C<br>x=%{x}<br>y=%{y}<br>z=%{z}<br>", 
                             type:'scatter3d',
                             marker: {
                                 color: this.transformData(this.state.data)['maker.color'],
                                 coloraxis: "coloraxis",
                                 symbol: "diamond",
                               },
-							 x: [1,1],
-							 y: [1,1],
-                             z:[2.2],
+							 x: [1],
+							 y: [1],
+                             z:[0],
                              colorscale:'diverging',
                             },
                             {mode: 'markers',
                             hovertemplate:
-              "Temp1=Grados<br>Grados=%{marker.color}<br>x=%{x}<br>y=%{y}<br>z=%{z}<br>", 
+              "Temp2<br>%{marker.color}°C<br>x=%{x}<br>y=%{y}<br>z=%{z}<br>", 
                             type:'scatter3d',
                             marker: {
                                 color: this.transformData(this.state.data)['maker.color2'],
+                                coloraxis: "coloraxis",
+                                symbol: "circle",
+                              },
+							 x: [1.2],
+							 y: [1.3],
+                             z:[0],
+                             colorscale:'diverging',
+                            },
+                            {mode: 'markers',
+                            hovertemplate:
+              "Temp3<br>%{marker.color}°C<br>x=%{x}<br>y=%{y}<br>z=%{z}<br>", 
+                            type:'scatter3d',
+                            marker: {
+                                color: this.transformData(this.state.data)['maker.color3'],
+                                coloraxis: "coloraxis",
+                                symbol: "circle",
+                              },
+							 x: [1.3],
+							 y: [1.4],
+                             z:[0],
+                             colorscale:'diverging',
+                            },
+                            {mode: 'markers',
+                            hovertemplate:
+              "Temp4<br>%{marker.color}°C<br>x=%{x}<br>y=%{y}<br>z=%{z}<br>", 
+                            type:'scatter3d',
+                            marker: {
+                                color: this.transformData(this.state.data)['maker.color4'],
+                                coloraxis: "coloraxis",
+                                symbol: "circle",
+                              },
+							 x: [1.4],
+							 y: [1.5],
+                             z:[0],
+                             colorscale:'diverging',
+                            },
+                            {mode: 'markers',
+                            hovertemplate:
+              "Temp5<br>%{marker.color}°C<br>x=%{x}<br>y=%{y}<br>z=%{z}<br>", 
+                            type:'scatter3d',
+                            marker: {
+                                color: this.transformData(this.state.data)['maker.color5'],
+                                coloraxis: "coloraxis",
+                                symbol: "circle",
+                              },
+							 x: [1.5],
+							 y: [1.6],
+                             z:[0],
+                             colorscale:'diverging',
+                            },
+                            {mode: 'markers',
+                            hovertemplate:
+              "Temp6<br>%{marker.color}°C<br>x=%{x}<br>y=%{y}<br>z=%{z}<br>", 
+                            type:'scatter3d',
+                            marker: {
+                                color: this.transformData(this.state.data)['maker.color6'],
+                                coloraxis: "coloraxis",
+                                symbol: "circle",
+                              },
+							 x: [1.6],
+							 y: [1.7],
+                             z:[0],
+                             colorscale:'diverging',
+                            },
+                            {mode: 'markers',
+                            hovertemplate:
+              "Temp7<br>%{marker.color}°C<br>x=%{x}<br>y=%{y}<br>z=%{z}<br>", 
+                            type:'scatter3d',
+                            marker: {
+                                color: this.transformData(this.state.data)['maker.color7'],
+                                coloraxis: "coloraxis",
+                                symbol: "circle",
+                              },
+							 x: [1.7],
+							 y: [1.8],
+                             z:[0],
+                             colorscale:'diverging',
+                            },
+                            {mode: 'markers',
+                            hovertemplate:
+              "Temp8<br>%{marker.color}°C<br>x=%{x}<br>y=%{y}<br>z=%{z}<br>", 
+                            type:'scatter3d',
+                            marker: {
+                                color: this.transformData(this.state.data)['maker.color8'],
+                                coloraxis: "coloraxis",
+                                symbol: "circle",
+                              },
+							 x: [1.9],
+							 y: [2.0],
+                             z:[0],
+                             colorscale:'diverging',
+                            },
+                            {mode: 'markers',
+                            hovertemplate:
+              "Temp9<br>%{marker.color}°C<br>x=%{x}<br>y=%{y}<br>z=%{z}<br>", 
+                            type:'scatter3d',
+                            marker: {
+                                color: this.transformData(this.state.data)['maker.color9'],
                                 coloraxis: "coloraxis",
                                 symbol: "circle",
                               },
